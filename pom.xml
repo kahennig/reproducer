@@ -359,30 +359,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <plugin>
-                <!--
-                    Plugin para integración con SonarQube
-
-                    The ability to execute the SonarQube analysis via a regular Maven goal makes it available anywhere Maven is available
-                    (developer build, CI server, etc.), without the need to manually download, setup, and maintain a SonarQube Runner installation.
-
-                    See: https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/
-                -->
-                <!-- Comando: mvn clean verify sonar:sonar -Dsonar.login=<<Token>> -Dsonar.branch.name=<<nombre del branch>> -->
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>${sonar.plugin.version}</version>
-                <!-- no default executions -->
-                <!--configuration>
-                    <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
-                    <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-                    <sonar.language>java</sonar.language>
-                    <sonar.jacoco.itReportPath>
-                        ${project.build.directory}/jacoco.exec
-                    </sonar.jacoco.itReportPath>
-                </configuration-->
-            </plugin>
         </plugins>
     </build>
 
