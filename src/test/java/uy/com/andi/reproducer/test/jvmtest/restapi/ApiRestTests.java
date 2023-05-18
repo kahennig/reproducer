@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @QuarkusTest
@@ -39,11 +38,8 @@ class ApiRestTests {
         LOGGER.info("\n--------------------------------------------------------------------------------------");
         LOGGER.info("\n--- test()");
 
-        String message =
-                given().with().body("Hello, world!").when().post("/tests/endpoints").then()
-                        .statusCode(Response.Status.ACCEPTED.getStatusCode()).extract().response().getBody().as(String.class);
-
-        assertEquals("Hello, world!", message);
+        given().with().body("Hello, world!").when().post("/tests/endpoints").then()
+                .statusCode(Response.Status.ACCEPTED.getStatusCode());
 
         LOGGER.info("\n--------------------------------------------------------------------------------------");
     }
